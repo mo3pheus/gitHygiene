@@ -23,9 +23,12 @@ public class SquareGenerator {
 
     public void drawSquare() {
         JLayeredPane contentPane = new JLayeredPane();
-        contentPane.add(new Square(200));
+        Square square = new Square(200);
+        square.setVisible(true);
+        contentPane.add(square);
         frame.setContentPane(contentPane);
         frame.repaint();
+        frame.setVisible(true);
         logger.info("Square drawn");
     }
 }
