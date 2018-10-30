@@ -26,6 +26,7 @@ public class CircleGenerator {
         contentPane.add(new Circle(400));
         frame.setContentPane(contentPane);
         frame.repaint();
+        frame.setVisible(true);
         logger.info("Circle drawn!");
     }
 }
