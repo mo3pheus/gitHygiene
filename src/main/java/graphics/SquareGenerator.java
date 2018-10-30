@@ -29,6 +29,6 @@ public class SquareGenerator {
         frame.setContentPane(contentPane);
         frame.repaint();
         frame.setVisible(true);
-        logger.info("Square drawn");
+        logger.debug("Square drawn");
     }
 }
