@@ -21,6 +21,6 @@ public class Square extends JComponent {
         Rectangle2D rectangle2D = new Rectangle2D.Double(100, 100, 200, 200);
         g2.setColor(Color.BLUE);
         g2.fill(rectangle2D);
-        logger.info("Square paint method called.");
+        logger.debug("Square paint method called.");
     }
 }
