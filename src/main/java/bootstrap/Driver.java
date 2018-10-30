@@ -1,5 +1,6 @@
 package bootstrap;
 
+import graphics.SquareGenerator;
 import org.apache.log4j.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,8 @@ public class Driver {
             logger.info(SEPARATOR);
             logger.info("Project properties are loaded. Log file generated for this run = " + logFilePath);
             projectProperties = getProjectProperties(args[1]);
+            SquareGenerator squareGenerator = new SquareGenerator(projectProperties);
+            squareGenerator.drawSquare();
         } catch (IOException io) {
             logger.error("Error while reading the project properties file.", io);
         }
