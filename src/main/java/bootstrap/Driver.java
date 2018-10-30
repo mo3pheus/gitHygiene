@@ -1,5 +1,6 @@
 package bootstrap;
 
+import graphics.CircleGenerator;
 import org.apache.log4j.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,8 @@ public class Driver {
             logger.info(SEPARATOR);
             logger.info("Project properties are loaded. Log file generated for this run = " + logFilePath);
             projectProperties = getProjectProperties(args[1]);
+            CircleGenerator circleGenerator = new CircleGenerator(projectProperties);
+            circleGenerator.drawCircle();
         } catch (IOException io) {
             logger.error("Error while reading the project properties file.", io);
         }
@@ -30,7 +33,7 @@ public class Driver {
     public static String configureLogging(boolean debug) {
         FileAppender fa = new FileAppender();
 
-        if ( !debug ) {
+        if (!debug) {
             fa.setThreshold(Level.toLevel(Priority.INFO_INT));
             fa.setFile("executionLogs/log_infoLevel_report_" + Long.toString(System.currentTimeMillis()) + ".log");
         } else {
@@ -47,7 +50,7 @@ public class Driver {
 
     public static void configureConsoleLogging(boolean debug) {
         ConsoleAppender ca = new ConsoleAppender();
-        if ( !debug ) {
+        if (!debug) {
             ca.setThreshold(Level.toLevel(Priority.INFO_INT));
         } else {
             ca.setThreshold(Level.toLevel(Priority.DEBUG_INT));
