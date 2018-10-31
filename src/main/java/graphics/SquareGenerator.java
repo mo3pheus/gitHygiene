@@ -15,7 +15,7 @@ public class SquareGenerator {
     public SquareGenerator(Properties graphicsProperties) {
         this.graphicsProperties = graphicsProperties;
         this.frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setBounds(new Rectangle(50, 50, 500, 500));
         frame.setVisible(true);
         frame.setTitle("Square Generator");
