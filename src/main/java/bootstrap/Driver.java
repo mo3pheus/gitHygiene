@@ -1,11 +1,13 @@
 package bootstrap;
 
+import graphics.FrameGenerator;
 import graphics.SquareGenerator;
 import graphics.CircleGenerator;
 import org.apache.log4j.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.awt.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -24,10 +26,8 @@ public class Driver {
             logger.info(SEPARATOR);
             logger.info("Project properties are loaded. Log file generated for this run = " + logFilePath);
             projectProperties = getProjectProperties(args[1]);
-            SquareGenerator squareGenerator = new SquareGenerator(projectProperties);
-            squareGenerator.drawSquare();
-            CircleGenerator circleGenerator = new CircleGenerator(projectProperties);
-            circleGenerator.drawCircle();
+            FrameGenerator frameGenerator = new FrameGenerator(projectProperties);
+            frameGenerator.drawComponents();
         } catch (IOException io) {
             logger.error("Error while reading the project properties file.", io);
         }
